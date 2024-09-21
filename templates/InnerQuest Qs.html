@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <meta charset="UTF-8"/>
+         <link rel="stylesheet" href="/static/css/InnerQuestQs.css">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-068TWM71GV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-068TWM71GV');
+    </script>
+
+    <body style="background-color: #E9F8FF;">
+        <!-- Needs to add variable for the question num -->
+        <p class="問題">{{question}}</p>
+        <!-- Needs to add string for the question sentence -->
+        <p id="yes" class="是">Yes</p>
+        <p id="no" class="否">No</p>
+        <p id="skip" class="skip">Skip Question</p>
+        <p id="result" class="result">View Result</p>
+        <p class="InnerQuest">InnerQuest @ Hope.harbor_</p>
+        <script>
+            let pressed = 0;
+            document.getElementById("yes").addEventListener("click", function() {
+                if (pressed == 0) {
+                    pressed = 1;
+                    window.location.href = "/InnerQuestion/{{category}}/{{client_uuid}}/yes"; 
+                }
+            });
+
+            document.getElementById("no").addEventListener("click", function() {
+                 if (pressed == 0) {
+                    pressed = 1;
+                    window.location.href = "/InnerQuestion/{{category}}/{{client_uuid}}/no"; 
+                }
+            });
+            
+            document.getElementById("skip").addEventListener("click", function() {
+                 if (pressed == 0) {
+                    pressed = 1;
+                    window.location.href = "/InnerQuestion/{{category}}/{{client_uuid}}/skip"; 
+                }
+            });
+            
+            document.getElementById("result").addEventListener("click", function() {
+                 if (pressed == 0) {
+                    pressed = 1;
+                    window.location.href = "/InnerQuestion/{{category}}/{{client_uuid}}/result"; 
+                }
+            });
+
+        </script>
+    </body>

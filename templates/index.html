@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <meta charset="UTF-8"/>
+         <link rel="stylesheet" href="/static/css/Index.css">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <title>InnerQuest</title>
+    </head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-068TWM71GV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-068TWM71GV');
+    </script>
+
+    <body style="background-color: #E9F8FF;">
+        <h1 class="腦袋裡有什麼">What's inside your BRAIN...!</h1>
+        <p class="InnerQuest">InnerQuest @ Hope.harbor_</p>
+        <p id="bad" class="bad">Bad</p>
+        <p id="happy" class="happy">Happy</p>
+        <p id="surprised" class="surprised">Surprised</p>
+        <p id="fearful" class="fearful">Fearful</p>
+        <p id="disgusted" class="disgusted">Disgusted</p>
+        <p id="angry" class="angry">Angry</p>
+        <p id="sad" class="sad">Sad</p>
+
+        <script>
+            document.getElementById("bad").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Bad/{{client_uuid}}"; });
+
+            document.getElementById("happy").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Happy/{{client_uuid}}"; });
+
+            document.getElementById("surprised").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Surprised/{{client_uuid}}"; });
+
+            document.getElementById("fearful").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Fearful/{{client_uuid}}"; });
+
+            document.getElementById("disgusted").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Disgusted/{{client_uuid}}"; });
+                                                              
+            document.getElementById("angry").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Angry/{{client_uuid}}"; });
+
+            document.getElementById("sad").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+        
+        </script>
+
+        <script src = "index.js"></script>
+    </body>
