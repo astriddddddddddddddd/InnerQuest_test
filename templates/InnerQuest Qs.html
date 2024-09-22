@@ -25,11 +25,10 @@
         <p id="no" class="否">No</p>
         <p id="maybe" class="可能">Maybe</p>
         <p id="back" class="back">Back</p>
-        <p id="next" class="next">Next</p>
         <p id="footer" class="footer">InnerQuest @ Hope.harbor_</p>
         <img id="emotion" src="/static/image/{{category}}.png" class="emotion"></img>
-        <div class="pagination">1/10</div>
-        <h1 class="Q">Q1</h1>
+        <div class="pagination">{{qnum}}/10</div>
+        <h1 class="Q">Q{{qnum}}</h1>
 
         <script>
             let pressed = 0;
@@ -53,14 +52,12 @@
                     window.location.href = "/InnerQuestion/{{category}}/{{client_uuid}}/maybe"; 
                 }
             });
-            
-            document.getElementById("result").addEventListener("click", function() {
+            document.getElementById("back").addEventListener("click", function() {
                  if (pressed == 0) {
                     pressed = 1;
-                    window.location.href = "/InnerQuestion/{{category}}/{{client_uuid}}/result"; 
+                    window.location.href = "/InnerQuestion/{{category}}/{{client_uuid}}/back"; 
                 }
             });
-
             document.getElementById("header").addEventListener("click", function() { window.location.href = "/"; });
         </script>
     </body>
