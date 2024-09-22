@@ -277,22 +277,10 @@ def innerQuest_2(cagry,cuuid,resp):
         userq.add_user_question(cuuid,"Yes\n")
     elif resp == "no":
         userq.add_user_question(cuuid,"No\n")
-    elif resp == "skip":
-        userq.delete_last_user_question(cuuid)
-    elif resp == "result":
-        userq.delete_last_user_question(cuuid)
-        prompt= userq.return_user_questions(cuuid) + "According to the responses above, which category is the person in? Without add additional wordings, just the one word for the category Respond me in english, out of these categories." + cagry_prompt[cagry]
-        result=get_response(prompt)
-        result=result.split(' ')[0]
-        print("result:")
-        print(result)
-        userq.delete_user(cuuid)
-        if result not in cagry_sub[cagry]:
-            return ("The result is not the the categories :" + result)
-        quoteNum = random.choice([3, 4])
-        print(f"quote select number:{quoteNum}")    
-        return render_template(cagry_html[cagry], mood=cagry_sub[cagry][result][0],desc=cagry_sub[cagry][result][1],imgName=cagry_sub[cagry][result][2], quote=cagry_sub[cagry][result][quoteNum]) 
-    if userq.get_user_question_count(cuuid) >= 20:
+    elif resp == "maybe":
+        userq.add_user_question(cuuid,"Maybe\n")
+      
+  if userq.get_user_question_count(cuuid) >= 20:
         prompt= userq.return_user_questions(cuuid) + "According to the responses above, which category is the person in? Without add additional wordings, just the one word for the category Respond me in english, out of these categories." + cagry_prompt[cagry]
         result=get_response(prompt)
         result=result.split(' ')[0]
