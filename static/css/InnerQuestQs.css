@@ -1,0 +1,247 @@
+body{
+    background: linear-gradient(to bottom, #FEF4FF, #C7EBEB);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.Q{
+    position: absolute;
+    width: 276px;
+    height: 27px;
+    left: 25%;
+    top: 10%;
+    
+    font-family: 'Jacques Francois';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 45px;
+    text-align: center;
+    
+    color: #285BB1;
+}
+    
+.header{
+    top: 0%;
+    left: 15%;
+    height: 20%;
+    width: 20%;
+}
+
+.問題{
+
+    /*text*/
+    font-style: normal;
+    font-weight: 40;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+
+    color: #000000;
+    
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+        
+    position: absolute;
+    left: 11%;
+    top: 20%;
+
+    /*box*/
+    width: 80%;
+    height: 25%;
+
+    background: #FFFFFF;
+    border-radius: 100%;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+}
+    
+.是{
+   /* Word */
+   font-family: 'Italiana';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 150%;
+   color: #FFFFFF;
+
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 24px 32px;
+   gap: 8px;
+   
+   /* Box */
+   position: absolute;
+   width: 25px;
+   height: 10px;
+   left:20%;
+   top: 50%;
+   
+   background: #BBBE9A;
+   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+   border-radius: 8px;
+
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+
+   cursor: pointer;
+}
+    
+.否{
+    /* Word */
+    font-family: 'Italiana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #FFFFFF;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 8px;
+
+    /* Box */
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    left: 45%;
+    top: 50%;
+
+    background: #8696B3;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.可能{
+    /* Word */
+    font-family: 'Italiana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #FFFFFF;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 8px;
+
+    /* Box */
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    left: 70%;
+    top: 50%;
+
+    background: #8DB28B;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.back{
+    /* Word */
+    font-family: 'Italiana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: #ffffff;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 8px;
+
+    /* Box */
+    position: absolute;
+    width: 5%;
+    height: 0%;
+    left: 50%;
+    top: 77%;
+
+    background: #8B9CB2;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+    
+.next{
+    /* Word */
+    font-family: 'Italiana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 8px;
+    
+    /* Box */
+    position: absolute;
+    width: 5%;
+    height: 0%;
+    left: 70%;
+    top: 77%;
+
+    background: #8B9CB2;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    cursor: pointer;
+}
+    
+.footer {
+    position: absolute;
+    top: 90%;
+    left: 35%;
+    color: #95a5a6;
+    font-size: 16px;
+}
+
+.emotion{
+    position: absolute;
+    height: 35%;
+    width: 35%;
+    top: 63%;
+    left: 2.5%;
+
+}
+
+.pagination {
+    text-align: right;
+    margin-top: 155px;
+    margin-right: 25px;
+}
