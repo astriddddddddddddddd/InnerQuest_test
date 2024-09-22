@@ -3,7 +3,7 @@ import uuid
 import textwrap
 import google.generativeai as genai
 import usersQuestions as userq
-import random
+import random                                 
 import os
 
 genai.configure(api_key='AIzaSyDMG6KRWhCJO1yDk1okerJcBPm4pwlCwy0')
@@ -222,7 +222,7 @@ cagry_sub["Sad"]["Depressed"] = ["Depressed", "Feeling of severe despondency and
 cagry_sub["Sad"]["Hurt"] = ["Hurt", "Feeling emotional pain or distress.", "hurt.png", 
                             "\"Our wounds are often the openings into the best and most beautiful part of us.\" — David Richo",
                             "\"The wound is where the Light enters you.\" — Rumi"]
-
+qnum=0
 
 def get_response(prompt):
     model = genai.GenerativeModel('gemini-1.5-flash')
@@ -256,6 +256,7 @@ def home():
 
 @app.route('/InnerQuestion/<cagry>/<cuuid>')
 def innerQuest(cagry,cuuid):
+     global qnum
      print("category:"+cagry)
      prompt=  "Create one yes no question without actually using the words in the following description to help to identify which of the following categories they fall in." + cagry_prompt[cagry]
      try:
@@ -268,10 +269,12 @@ def innerQuest(cagry,cuuid):
      print(question)
      userq.clear_user_questions(cuuid)
      userq.add_user_question(cuuid,question)
-     return render_template('InnerQuest Qs.html', question=question,category=cagry,client_uuid=cuuid)
+     qnum=1
+     return render_template('InnerQuest Qs.html', question=question,category=cagry,client_uuid=cuuid,qnum=str(qnum))
      
 @app.route('/InnerQuestion/<cagry>/<cuuid>/<resp>')
 def innerQuest_2(cagry,cuuid,resp):
+    global qnum
     print("category:"+cagry+"  resp:"+resp)
     if resp == "yes":
         userq.add_user_question(cuuid,"Yes\n")
@@ -279,7 +282,13 @@ def innerQuest_2(cagry,cuuid,resp):
         userq.add_user_question(cuuid,"No\n")
     elif resp == "maybe":
         userq.add_user_question(cuuid,"Maybe\n")
-      
+    elif resp == "back":
+        if qnum > 1:
+            userq.delete_last_user_question(cuuid)
+            userq.delete_last_user_question(cuuid)
+            qnum=qnum-1
+        question=userq.return_last_user_question(cuuid)            
+        return render_template('InnerQuest Qs.html', question=question,category=cagry,client_uuid=cuuid,qnum=str(qnum))
     if userq.get_user_question_count(cuuid) >= 20:
         prompt= userq.return_user_questions(cuuid) + "According to the responses above, which category is the person in? Without add additional wordings, just the one word for the category Respond me in english, out of these categories." + cagry_prompt[cagry]
         result=get_response(prompt)
@@ -302,8 +311,8 @@ def innerQuest_2(cagry,cuuid,resp):
         question="System error! Please press SKIP!"
     print(question)
     userq.add_user_question(cuuid,question)
-#    number=str(int(number)+1)
-    return render_template('InnerQuest Qs.html', question=question,category=cagry,client_uuid=cuuid)     
+    qnum=qnum+1
+    return render_template('InnerQuest Qs.html', question=question,category=cagry,client_uuid=cuuid,qnum=str(qnum))     
      
 if __name__ == '__main__':
     app.run('0.0.0.0', 8000)
