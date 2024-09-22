@@ -280,7 +280,7 @@ def innerQuest_2(cagry,cuuid,resp):
     elif resp == "maybe":
         userq.add_user_question(cuuid,"Maybe\n")
       
-  if userq.get_user_question_count(cuuid) >= 20:
+    if userq.get_user_question_count(cuuid) >= 20:
         prompt= userq.return_user_questions(cuuid) + "According to the responses above, which category is the person in? Without add additional wordings, just the one word for the category Respond me in english, out of these categories." + cagry_prompt[cagry]
         result=get_response(prompt)
         result=result.split(' ')[0]
