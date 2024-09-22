@@ -4,6 +4,7 @@ import textwrap
 import google.generativeai as genai
 import usersQuestions as userq
 import random
+import os
 
 genai.configure(api_key='AIzaSyDMG6KRWhCJO1yDk1okerJcBPm4pwlCwy0')
 
@@ -242,6 +243,9 @@ def get_response(prompt):
     
        
 app = Flask(__name__)
+app.config['ENV'] = 'production'
+app.config['DEBUG'] = False
+secret_key = os.getenv('SECRET_KEY')
 app.secret_key = 'your_secret_key_here'
 
 @app.route('/')
