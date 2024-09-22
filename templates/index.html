@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <meta charset="UTF-8"/>
+         <link rel="stylesheet" href="/static/css/Index.css">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <title>InnerQuest</title>
+    </head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-068TWM71GV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-068TWM71GV');
+    </script>
+
+    <body>
+        <h1 class="tittle">How's your Inner World?</h1>
+        <p class="footer">InnerQuest @ Hope.harbor_</p>
+        <img id="header" src = "/static/image/hopeharbor_logo.png" class="header"></img>
+        <p id="bad" class="bad">Bad</p>
+        <p id="happy" class="happy">Happy</p>
+        <p id="surprised" class="surprised">Surprised</p>
+        <p id="fearful" class="fearful">Fearful</p>
+        <p id="disgusted" class="disgusted">Disgusted</p>
+        <p id="angry" class="angry">Angry</p>
+        <p id="sad" class="sad">Sad</p>
+        <img id="fearful-pic" src="/static/image/Fearful.png" class="fearful-pic"></img>
+        <img id="happy-pic" src="/static/image/Happy.png" class="happy-pic"></img>
+        <img id="angry-pic" src="/static/image/Angry.png" class="angry-pic"></img>
+        <img id="bad-pic" src="/static/image/Bad.png" class="bad-pic"></img>
+        <img id="surprised-pic" src="/static/image/Surprised.png" class="surprised-pic"></img>
+        <img id="disgusted-pic" src="/static/image/Disgusted.png" class="disgusted-pic"></img>
+        <img id="sad-pic" src="/static/image/Sad.png" class="sad-pic"></img>
+
+        <script>
+            document.getElementById("bad").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Bad/{{client_uuid}}"; });
+
+            document.getElementById("happy").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Happy/{{client_uuid}}"; });
+
+            document.getElementById("surprised").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Surprised/{{client_uuid}}"; });
+
+            document.getElementById("fearful").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Fearful/{{client_uuid}}"; });
+
+            document.getElementById("disgusted").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Disgusted/{{client_uuid}}"; });
+                                                              
+            document.getElementById("angry").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Angry/{{client_uuid}}"; });
+
+            document.getElementById("sad").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+
+            document.getElementById("sad-pic").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+
+            document.getElementById("fearful-pic").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+
+            document.getElementById("happy-pic").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+            
+            document.getElementById("angry-pic").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+
+            document.getElementById("bad-pic").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+
+            document.getElementById("surprised-pic").addEventListener("click", function() {
+            window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+
+            document.getElementById("disgusted-pic").addEventListener("click", function() {
+                window.location.href = "/InnerQuestion/Sad/{{client_uuid}}"; });
+        
+        </script>
+
+        <script src = "index.js"></script>
+    </body>
