@@ -238,7 +238,7 @@ def get_response(prompt):
     try:
         print(response.text)
     except:
-        return "Security Issue. Please SKIP"
+        return "Security Issue. Please Back"
     return response.text
     
        
@@ -308,7 +308,7 @@ def innerQuest_2(cagry,cuuid,resp):
         print(f"API Error: {e}")
         print("Prompt:")
         print(prompt)
-        question="System error! Please press SKIP!"
+        question="System error! Please press Back!"
     print(question)
     userq.add_user_question(cuuid,question)
     qnum=qnum+1
