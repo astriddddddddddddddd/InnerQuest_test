@@ -9,8 +9,8 @@ body{
     position: absolute;
     width: 276px;
     height: 25px;
-    left: 35%;
-    top: 50%;
+    left: 25%;
+    top: 10%;
     
     font-family: 'Jacques Francois';
     font-style: normal;
@@ -208,6 +208,6 @@ body{
 
 .pagination {
     text-align: right;
-    margin-top: 155px;
+    margin-top: 180px;
     margin-right: 25px;
 }
