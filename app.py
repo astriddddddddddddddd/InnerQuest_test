@@ -265,7 +265,7 @@ def innerQuest(cagry,cuuid):
         print(f"API Error: {e}")
         print("Prompt:")
         print(prompt)
-        question="System error! Please press SKIP!"
+        question="System error! Please press Back!"
      print(question)
      userq.clear_user_questions(cuuid)
      userq.add_user_question(cuuid,question)
