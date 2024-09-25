@@ -12,7 +12,8 @@ import openai
 ')
 
 #OpenAI
-openai.api_key = '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'
+openai.api_key = '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
+'
 
 # Definition
 cagry_prompt = {}
