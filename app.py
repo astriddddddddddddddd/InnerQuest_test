@@ -5,12 +5,13 @@ import google.generativeai as genai
 import usersQuestions as userq
 import random                                 
 import os
+import openai
 
 #gemini
 #genai.configure(api_key='AIzaSyDMG6KRWhCJO1yDk1okerJcBPm4pwlCwy0')
 
 #OpenAI
-client = OpenAI(api_key='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')
+client = openai(api_key='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')
 
 # Definition
 cagry_prompt = {}
