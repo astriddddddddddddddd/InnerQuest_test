@@ -6,15 +6,18 @@ import usersQuestions as userq
 import random                                 
 import os
 
-genai.configure(api_key='AIzaSyDMG6KRWhCJO1yDk1okerJcBPm4pwlCwy0')
+#gemini
+#genai.configure(api_key='AIzaSyDMG6KRWhCJO1yDk1okerJcBPm4pwlCwy0')
 
+#OpenAI
+client = OpenAI(api_key='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')
 
+# Definition
 cagry_prompt = {}
 cagry_prompt["Bad"] = "Bored: Feeling indifferent or apathetic due to a lack of interest or stimulation." \
                   "Busy: Feeling pressured or rushed due to having many tasks or commitments to manage." \
                   "Stressed: Feeling overwhelmed or out of control due to excessive demands or challenges." \
-                  "Tired: Feeling sleepy or unfocused due to a lack of rest or mental fatigue." 
-                  
+                  "Tired: Feeling sleepy or unfocused due to a lack of rest or mental fatigue."                
 cagry_prompt["Surprised"] = "Startled: Feeling suddenly surprised or alarmed due to an unexpected event." \
                   "Confused: Feeling unable to think clearly or understand something." \
                   "Amazed: Feeling overwhelming surprise or wonder." \
@@ -52,6 +55,8 @@ cagry_prompt["Fearful"] = "Scared: Feeling fear or apprehension about something.
                   "Weak: Lacking in strength or power either physically or emotionally." \
                   "Rejected: Feeling dismissed or excluded by others." \
                   "Threatened: Feeling in danger or at risk of harm or loss."
+
+# html direction
 cagry_html = {}
 cagry_html["Bad"] = "bad.html"
 cagry_html["Surprised"] = "surprised.html"
@@ -61,6 +66,7 @@ cagry_html["Disgusted"] = "disgusted.html"
 cagry_html["Angry"] = "angry.html"
 cagry_html["Fearful"] = "fearful.html"  
 
+#Subcategory
 cagry_sub = {}
 
 # bad_array
@@ -149,15 +155,12 @@ cagry_sub["Disgusted"] = {}
 cagry_sub["Disgusted"]["Disapproving"] = ["Disapproving", "Expressing or feeling negative judgment or disapproval towards someone or something.", "disapproving.png", 
                                          "\"Do not judge my story by the chapter you walked in on.\" — Anonymous",
                                          "\"Be curious, not judgmental.\" — Walt Whitman"]
-
 cagry_sub["Disgusted"]["Disappointed"] = ["Disappointed", "Feeling let down or disillusioned by unmet expectations or outcomes.", "disappointed.png", 
                                           "\"When one door closes, another opens; but we often look so long and so regretfully upon the closed door that we do not see the one which has opened for us.\" — Alexander Graham Bell",
                                           "\"Blessed is he who expects nothing, for he shall never be disappointed.\" — Alexander Pope"]
-
 cagry_sub["Disgusted"]["Awful"] = ["Awful", "Extremely unpleasant or disagreeable; causing a feeling of dismay or horror.", "awful.png", 
                                     "\"When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.\" — Henry Ford",
                                     "\"Pain is inevitable. Suffering is optional.\" — Haruki Murakami"]
-
 cagry_sub["Disgusted"]["Repelled"] = ["Repelled", "Feeling a strong aversion or disgust towards something or someone.", "repelled.png", 
                                       "\"Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.\" — Rumi",
                                       "\"Turn your face to the sun and the shadows fall behind you.\" — Maori Proverb"]
@@ -167,63 +170,52 @@ cagry_sub["Angry"] = {}
 cagry_sub["Angry"]["Let-down"] = ["Let-down", "Feeling disappointed or betrayed by someone or something.", "let-down.png", 
                                   "\"Disappointments are often blessings in disguise, leading you to something better.\" — Dalai Lama",
                                   "\"Trust that life's setbacks are preparing you for greater things.\" — Anonymous"]
-
 cagry_sub["Angry"]["Humiliated"] = ["Humiliated", "Feeling embarrassed or ashamed by being belittled or degraded.", "humiliated.png", 
                                     "\"Letting go of the past allows you to discover your true self.\" — Deepak Chopra",
                                     "\"If you are never scared, embarrassed, or hurt, it means you never take chances.\" — Julia Soul"]
-
 cagry_sub["Angry"]["Bitter"] = ["Bitter", "Feeling resentful or unhappy due to unfair treatment or disappointment.", "bitter.png", 
                                 "\"Don’t be so bitter about a bad experience from your past that you miss the opportunities in front of you.\" — Nelson Mandela",
                                 "\"Hurt gives way to bitterness, bitterness to anger. Travel too far that road and the way is lost.\" — Terry Brooks"]
-
 cagry_sub["Angry"]["Mad"] = ["Mad", "Feeling angry or upset.", "mad.png", 
                              "\"Anger helps strengthen out a problem like a fan helps straighten out a pile of papers.\" — Susan Mancotte",
                              "\"Channel your energy into building a positive and loving life.\" — Lawrence G. Lovasik"]
-
 cagry_sub["Angry"]["Aggressive"] = ["Aggressive", "Feeling hostile or confrontational.", "aggressive.png", 
                                     "\"Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.\" — Buddha",
                                     "\"True victory lies in choosing peace over conflict.\" — Sun Tzu"]
-
 cagry_sub["Angry"]["Frustrated"] = ["Frustrated", "Feeling annoyed or discouraged due to obstacles or lack of progress.", "frustrated.png", 
                                     "\"Embrace frustration as a stepping stone to success and growth.\" — Bo Bennett",
                                     "\"Release your stress and find peace in the flow of life.\" — Steve Maraboli"]
-
 cagry_sub["Angry"]["Distant"] = ["Distant", "Feeling emotionally or physically separated from others.", "distant.png", 
                                  "\"Embrace resistance as a tool to build strong character and resilience.\" — Arnold Schwarzenegger",
                                  "\"Life is not about waiting for the storms to pass. It’s about learning how to dance in the rain.\" — Vivian Greene"]
-
 cagry_sub["Angry"]["Critical"] = ["Critical", "Expressing disapproval or judgment towards someone or something.", "critical.png", 
                                   "\"Choosing kindness over judgment transforms both you and the world around you.\" — Wayne Dyer",
                                   "\"Don’t be distracted by criticism. Remember, the only taste of success some people have is when they take a bite out of you.\" — Zig Ziglar"]
-
 
 # sad_array
 cagry_sub["Sad"] = {}
 cagry_sub["Sad"]["Lonely"] = ["Lonely", "Feeling isolated and lacking companionship.", "lonely.png", 
                                "\"The soul that sees beauty may sometimes walk alone.\" — Johann Wolfgang von Goethe",
                                "\"Loneliness and the feeling of being unwanted is the most terrible poverty.\" — Mother Teresa"]
-
 cagry_sub["Sad"]["Vulnerable"] = ["Vulnerable", "Feeling susceptible to harm or emotional injury.", "vulnerable.png", 
                                   "\"Vulnerability is not winning or losing; it’s having the courage to show up and be seen when we have no control over the outcome.\" — Brené Brown",
                                   "\"Being vulnerable is the only way to allow your heart to feel true pleasure.\" — Bob Marley"]
-
 cagry_sub["Sad"]["Despair"] = ["Despair", "Feeling a complete loss of hope or confidence.", "despair.png", 
                                 "\"Never lose hope. Storms make people stronger and never last forever.\" — Roy T. Bennett",
                                 "\"In the middle of difficulty lies opportunity.\" — Albert Einstein"]
-
 cagry_sub["Sad"]["Guilty"] = ["Guilty", "Feeling responsible for wrongdoing or offense.", "guilty.png", 
                                "\"Guilt is not a response to anger; it is a response to one’s own actions or lack of action.\" — Audre Lorde",
                                "\"The greatest glory in living lies not in never falling, but in rising every time we fall.\" — Nelson Mandela"]
-
 cagry_sub["Sad"]["Depressed"] = ["Depressed", "Feeling of severe despondency and dejection.", "depressed.png", 
                                   "\"Even the darkest night will end, and the sun will rise.\" — Victor Hugo",
                                   "\"Faith is the bird that feels the light when the dawn is still dark.\" — Rabindranath Tagore"]
-
 cagry_sub["Sad"]["Hurt"] = ["Hurt", "Feeling emotional pain or distress.", "hurt.png", 
                             "\"Our wounds are often the openings into the best and most beautiful part of us.\" — David Richo",
                             "\"The wound is where the Light enters you.\" — Rumi"]
+
 qnum=0
 
+'''
 def get_response(prompt):
     model = genai.GenerativeModel('gemini-1.5-flash')
 #   response = model.generate_content(prompt)
@@ -238,8 +230,22 @@ def get_response(prompt):
     try:
         print(response.text)
     except:
-        return "Security Issue. Please Back"
+        return "Security Issue. Please SKIP"
     return response.text
+'''
+
+#OpenAI
+def get_response(prompt):
+    response = client.chat.completions.create(
+#      model="gpt-4",    
+      model="gpt-3.5-turbo",
+      messages=[
+        {"role": "user", "content": prompt},
+      ]
+    )
+    #print(response.json())
+    #print(response.choices[0].message.content)
+    return response.choices[0].message.content
     
        
 app = Flask(__name__)
@@ -265,7 +271,7 @@ def innerQuest(cagry,cuuid):
         print(f"API Error: {e}")
         print("Prompt:")
         print(prompt)
-        question="System error! Please press Back!"
+        question="System error! Please press SKIP!"
      print(question)
      userq.clear_user_questions(cuuid)
      userq.add_user_question(cuuid,question)
@@ -308,7 +314,7 @@ def innerQuest_2(cagry,cuuid,resp):
         print(f"API Error: {e}")
         print("Prompt:")
         print(prompt)
-        question="System error! Please press Back!"
+        question="System error! Please press SKIP!"
     print(question)
     userq.add_user_question(cuuid,question)
     qnum=qnum+1
