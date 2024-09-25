@@ -11,7 +11,7 @@ import openai
 #genai.configure(api_key='AIzaSyDMG6KRWhCJO1yDk1okerJcBPm4pwlCwy0')
 
 #OpenAI
-client = openai(api_key='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')
+openai.api_key = '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'
 
 # Definition
 cagry_prompt = {}
