@@ -1,7 +1,7 @@
 from flask import Flask, render_template, session, jsonify, request      
 import uuid
 import textwrap
-import google.generativeai as genai
+#import google.generativeai as genai
 import usersQuestions as userq
 import random                                 
 import os
